@@ -1,61 +1,24 @@
 const API_URL =
-"https://script.google.com/macros/s/AKfycbyVqjC_BsVD73Q8Yh_DPTvXbbm_qeipIAm4loyk9rE4VMw5e9yVC3Q7hM1bJdxZadmo/exec";
+"https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnQqjrvRhKz3tDMvE6Wwwn0UIEpwLGcwXiQJRNOPTklNzh3xx_6j2BrmfitcQIDQfP5uacEb8JB49AbztTymAboDv5hqCQJnXaZNz6cIjMCc6YiWshRCLVgu4hj-md6nZn4thovVCy1gL8nYIm3fyZiTo9ek3EngJio-3dTwjB3gD5_Vw9Kw7gfLgwgT6-ixzWlp3y_NKRpZo7wJXrfsU6oVsskBAurafVQfSicBmW0r6gcJHrS9yxpLIgbdUbrYI2EIGEsb4HfiPcf16UwTlNQdPYxsrQ&lib=MRa17yZ29jtBZAB8rb9I7GyqbMsTEyGLk";
 
 async function login(){
-
-  const username =
-  document.getElementById(
-    "username"
-  ).value;
-
-  const password =
-  document.getElementById(
-    "password"
-  ).value;
 
   try{
 
     const response =
-    await fetch(
-      API_URL,
-      {
-        method:"POST",
-        headers:{
-          "Content-Type":
-          "application/json"
-        },
-        body:JSON.stringify({
-          action:"login",
-          username:username,
-          password:password
-        })
-      }
-    );
+    await fetch(API_URL);
 
     const result =
     await response.json();
 
-    if(result.status){
-
-      alert(
-        "Login Berhasil\n\n" +
-        result.nama
-      );
-
-    }else{
-
-      alert(
-        "Username atau Password salah"
-      );
-
-    }
+    alert(
+      JSON.stringify(result)
+    );
 
   }catch(error){
 
-    console.log(error);
-
     alert(
-      "ERROR:\n\n" +
+      "ERROR : " +
       error.message
     );
 
