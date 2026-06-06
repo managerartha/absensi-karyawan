@@ -55,7 +55,8 @@ async function login(){
     console.log(error);
 
     alert(
-      "Gagal terhubung ke server"
+      "ERROR:\n\n" +
+      error.message
     );
 
   }
